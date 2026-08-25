@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ລົດດີມີສະໄຕລ໌ | ຕະຫຼາດລົດຍົນອອນລາຍ</title>
+<style>
+  :root{
+    --primary:#0a0a0a;
+    --primary2:#1a1a1a;
+    --accent:#e10600;
+    --accent2:#ff2d2d;
+    --bg:#0d0d0d;
+    --card:#161616;
+    --card2:#1e1e1e;
+    --text:#f1f1f1;
+    --muted:#9ca3af;
+    --border:#2a2a2a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--text);}
+
+  header{
+    background:linear-gradient(90deg,var(--primary),var(--primary2));
+    border-bottom:2px solid var(--accent);
+    color:#fff;
+    padding:16px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 2px 14px rgba(225,6,0,.15);
+  }
+  header .logo{font-size:22px;font-weight:800;letter-spacing:.5px;}
+  header .logo span{color:var(--accent);}
+  nav a{color:#fff;text-decoration:none;margin-left:22px;font-size:15px;opacity:.85;transition:.2s;}
+  nav a:hover{opacity:1;color:var(--accent2);}
+
+  .hero{
+    background:linear-gradient(rgba(10,10,10,.75),rgba(10,10,10,.85)),
+      url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80') center/cover;
+    position:relative;
+    padding:90px 24px;
+    color:#fff;
+    text-align:center;
+    border-bottom:3px solid var(--accent);
+  }
+  .hero-content{max-width:700px;margin:0 auto;}
+  .hero h1{font-size:36px;margin-bottom:12px;text-shadow:0 2px 12px rgba(225,6,0,.4);}
+  .hero h1 span{color:var(--accent2);}
+  .hero p{font-size:16px;color:#d1d5db;margin-bottom:28px;}
+
+  .search-box{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:16px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    max-width:850px;
+    margin:0 auto;
+    box-shadow:0 8px 30px rgba(225,6,0,.15);
+  }
+  .search-box select, .search-box input, .search-box button{
+    padding:10px 14px;
+    border-radius:8px;
+    border:1px solid var(--border);
+    background:#0f0f0f;
+    color:#fff;
+    font-size:14px;
+    flex:1;
+    min-width:120px;
+  }
+  .search-box button{
+    background:var(--accent);
+    color:#fff;
+    font-weight:700;
+    border:none;
+    cursor:pointer;
+    flex:0 0 auto;
+    min-width:100px;
+    transition:.2s;
+  }
+  .search-box button:hover{background:var(--accent2);}
+
+  .section{max-width:1200px;margin:50px auto;padding:0 24px;}
+  .section-title{
+    font-size:26px;
+    font-weight:800;
+    margin-bottom:20px;
+    border-left:5px solid var(--accent);
+    padding-left:12px;
+  }
+  .section-title span{color:var(--muted);font-weight:400;font-size:15px;}
+
+  .filter-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;}
+  .chip{
+    padding:8px 16px;
+    border-radius:20px;
+    background:var(--card);
+    border:1px solid var(--border);
+    color:#e5e7eb;
+    font-size:14px;
+    cursor:pointer;
+    transition:.2s;
+  }
+  .chip.active, .chip:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+  .car-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:22px;
+  }
+  .car-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 4px 14px rgba(0,0,0,.4);
+    transition:transform .25s, box-shadow .25s, border-color .25s;
+    cursor:pointer;
+    position:relative;
+  }
+  .car-card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(225,6,0,.25);border-color:var(--accent);}
+  .car-card img{width:100%;height:180px;object-fit:cover;}
+  .badge{
+    position:absolute;top:12px;left:12px;
+    background:var(--accent);color:#fff;
+    font-size:12px;font-weight:700;
+    padding:4px 10px;border-radius:6px;
+  }
+  .car-info{padding:16px;}
+  .car-info h3{font-size:17px;margin-bottom:6px;}
+  .car-meta{display:flex;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-bottom:10px;}
+  .car-meta span{background:#0f0f0f;border:1px solid var(--border);padding:3px 8px;border-radius:6px;}
+  .price{font-size:20px;font-weight:800;color:var(--accent2);}
+  .price small{font-size:12px;color:var(--muted);font-weight:400;margin-left:6px;}
+  .contact-btn{
+    margin-top:12px;
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:var(--accent);
+    color:#fff;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+  }
+  .contact-btn:hover{background:var(--accent2);}
+
+  .no-result{text-align:center;padding:60px 20px;color:var(--muted);}
+
+  .about-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+  }
+  .about-wrap img{width:100%;border-radius:14px;border:1px solid var(--border);}
+  .about-text h3{font-size:22px;margin-bottom:14px;color:var(--accent2);}
+  .about-text p{color:var(--muted);line-height:1.7;margin-bottom:14px;font-size:15px;}
+  .about-stats{display:flex;gap:20px;margin-top:20px;flex-wrap:wrap;}
+  .stat-box{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:14px 20px;
+    text-align:center;
+    flex:1;
+    min-width:110px;
+  }
+  .stat-box b{display:block;font-size:24px;color:var(--accent);}
+  .stat-box span{font-size:13px;color:var(--muted);}
+
+  @media(max-width:700px){
+    .about-wrap{grid-template-columns:1fr;}
+  }
+
+  .booking-box{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:30px;
+    max-width:600px;
+    margin:0 auto;
+    box-shadow:0 8px 30px rgba(225,6,0,.1);
+  }
+  .booking-box p.sub{color:var(--muted);margin-bottom:20px;font-size:14px;}
+  .form-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;}
+  .form-group{flex:1;min-width:200px;}
+  .form-group label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;}
+  .form-group input, .form-group select, .form-group textarea{
+    width:100%;
+    padding:11px 14px;
+    border-radius:8px;
+    border:1px solid var(--border);
+    background:#0f0f0f;
+    color:#fff;
+    font-size:14px;
+  }
+  .form-group textarea{resize:vertical;min-height:80px;}
+  .submit-btn{
+    width:100%;
+    padding:13px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    border:none;
+    color:#fff;
+    font-weight:800;
+    font-size:15px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:6px;
+    transition:.2s;
+  }
+  .submit-btn:hover{opacity:.9;}
+  .form-success{
+    display:none;
+    background:#0f2f18;
+    border:1px solid #16a34a;
+    color:#4ade80;
+    padding:12px 16px;
+    border-radius:8px;
+    margin-bottom:14px;
+    font-size:14px;
+  }
+  .form-success.show{display:block;}
+
+  .modal-overlay{
+    display:none;
+    position:fixed;inset:0;
+    background:rgba(0,0,0,.75);
+    z-index:200;
+    align-items:center;justify-content:center;
+    padding:20px;
+  }
+  .modal-overlay.show{display:flex;}
+  .modal-box{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    max-width:500px;
+    width:100%;
+    overflow:hidden;
+    animation:pop .25s ease;
+  }
+  @keyframes pop{from{transform:scale(.9);opacity:0;}to{transform:scale(1);opacity:1;}}
+  .modal-box img{width:100%;height:220px;object-fit:cover;}
+  .modal-body{padding:20px;}
+  .modal-body h2{margin-bottom:10px;}
+  .modal-body .price{margin:10px 0;}
+  .modal-close{
+    float:right;background:rgba(0,0,0,.5);border:none;
+    font-size:20px;cursor:pointer;color:#fff;
+    width:32px;height:32px;border-radius:50%;
+    margin:10px;
+  }
+  .modal-detail-list{list-style:none;margin:14px 0;font-size:14px;color:var(--muted);}
+  .modal-detail-list li{padding:4px 0;border-bottom:1px dashed var(--border);display:flex;justify-content:space-between;}
+  .modal-actions{display:flex;gap:10px;margin-top:14px;}
+  .modal-actions a{
+    flex:1;padding:12px;border-radius:8px;border:none;font-weight:700;cursor:pointer;
+    text-align:center;text-decoration:none;font-size:14px;
+  }
+  .btn-fb{background:#1877f2;color:#fff;}
+  .btn-wa{background:#25d366;color:#111;}
+
+  footer{
+    background:#050505;
+    border-top:2px solid var(--accent);
+    color:#9ca3af;
+    text-align:center;
+    padding:36px 20px;
+    margin-top:60px;
+    font-size:14px;
+  }
+  footer b{color:#fff;}
+  .footer-links{display:flex;justify-content:center;gap:16px;margin:16px 0;flex-wrap:wrap;}
+  .footer-links a{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 18px;border-radius:8px;
+    text-decoration:none;font-weight:700;font-size:14px;
+    transition:.2s;
+  }
+  .footer-links a.fb{background:#1877f2;color:#fff;}
+  .footer-links a.fb:hover{background:#3b8dfd;}
+  .footer-links a.wa{background:#25d366;color:#111;}
+  .footer-links a.wa:hover{background:#3fe083;}
+
+  @media(max-width:600px){
+    header{flex-direction:column;gap:10px;}
+    nav a{margin:0 8px;}
+    .hero h1{font-size:26px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ລົດດີ<span>ມີສະໄຕລ໌</span></div>
+  <nav>
+    <a href="#cars">ລົດທັງໝົດ</a>
+    <a href="#about">ກ່ຽວກັບພວກເຮົາ</a>
+    <a href="#booking">ຈອງເບິ່ງລົດ</a>
+    <a href="#contact">ຕິດຕໍ່ພວກເຮົາ</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>ຄົ້ນຫາລົດຍົນມືສອງ<span>ຄຸນນະພາບດີ</span> ລາຄາຄຸ້ມຄ່າ</h1>
+    <p>ກວດສອບປະຫວັດຊັດເຈນ ບໍ່ມີການຊົນໜັກ ພ້ອມຮັບປະກັນຫຼັງການຂາຍ</p>
+    <div class="search-box">
+      <select id="filterBrand">
+        <option value="">ຍີ່ຫໍ້ທັງໝົດ</option>
+        <option value="Toyota">Toyota</option>
+        <option value="Honda">Honda</option>
+        <option value="Mazda">Mazda</option>
+        <option value="Isuzu">Isuzu</option>
+        <option value="Ford">Ford</option>
+      </select>
+      <select id="filterPrice">
+        <option value="">ຊ່ວງລາຄາທັງໝົດ</option>
+        <option value="0-400000">ຕ່ຳກວ່າ 400,000</option>
+        <option value="400000-700000">400,000 - 700,000</option>
+        <option value="700000-999999999">700,000 ຂຶ້ນໄປ</option>
+      </select>
+      <input type="text" id="searchInput" placeholder="ຄົ້ນຫາລຸ້ນລົດ...">
+      <button onclick="applyFilter()">ຄົ້ນຫາ</button>
+    </div>
+  </div>
+</section>
+
+<div class="section" id="cars">
+  <div class="section-title">ລົດແນະນຳ <span>(ອັບເດດລ່າສຸດ)</span></div>
+  <div class="filter-chips">
+    <div class="chip active" data-type="">ທັງໝົດ</div>
+    <div class="chip" data-type="sedan">ລົດເກັ້ງ</div>
+    <div class="chip" data-type="suv">SUV</div>
+    <div class="chip" data-type="pickup">ລົດກະບະ</div>
+    <div class="chip" data-type="hatchback">ແຮັດແບັກ</div>
+  </div>
+  <div class="car-grid" id="carGrid"></div>
+</div>
+
+<!-- About Us -->
+<div class="section" id="about">
+  <div class="section-title">ກ່ຽວກັບພວກເຮົາ</div>
+  <div class="about-wrap">
+    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=700&q=80" alt="ກ່ຽວກັບພວກເຮົາ">
+    <div class="about-text">
+      <h3>ລົດດີມີສະໄຕລ໌ ຕະຫຼາດລົດຍົນມືສອງທີ່ທ່ານໄວ້ວາງໃຈໄດ້</h3>
+      <p>ພວກເຮົາຄັດເລືອກລົດຍົນມືສອງຄຸນນະພາບດີ ຜ່ານການກວດເຊັກສະພາບຢ່າງລະອຽດໂດຍຊ່າງຜູ້ຊ່ຽວຊານ ພ້ອມປະຫວັດການສ້ອມແປງທີ່ຊັດເຈນ ບໍ່ມີການປົກປິດຂໍ້ມູນ ເພື່ອໃຫ້ລູກຄ້າໝັ້ນໃຈໄດ້ໃນທຸກການຕັດສິນໃຈຊື້.</p>
+      <p>ໃຫ້ບໍລິການມາຫຼາຍກວ່າ 8 ປີ ດ້ວຍທີມງານມືອາຊີບ ພ້ອມບໍລິການຫຼັງການຂາຍ ແລະ ຮັບປະກັນເຄື່ອງຈັກ-ເກຍນານສູງສຸດ 1 ປີ.</p>
+      <div class="about-stats">
+        <div class="stat-box"><b>8+</b><span>ປີທີ່ໃຫ້ບໍລິການ</span></div>
+        <div class="stat-box"><b>1,200+</b><span>ລົດທີ່ຂາຍໄປແລ້ວ</span></div>
+        <div class="stat-box"><b>4.9★</b><span>ຄະແນນລີວິວ</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Booking Form -->
+<div class="section" id="booking">
+  <div class="section-title">ຈອງເບິ່ງລົດ / ນັດໝາຍທົດລອງຂັບ</div>
+  <div class="booking-box">
+    <p class="sub">ຕື່ມຂໍ້ມູນລຸ່ມນີ້ ທີມງານຈະຕິດຕໍ່ກັບພາຍໃນ 24 ຊົ່ວໂມງ</p>
+    <div class="form-success" id="formSuccess">✅ ສົ່ງຂໍ້ມູນສຳເລັດແລ້ວ! ທີມງານຈະຕິດຕໍ່ກັບໂດຍໄວທີ່ສຸດ</div>
+    <form id="bookingForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>ຊື່-ນາມສະກຸນ</label>
+          <input type="text" required placeholder="ເຊັ່ນ: ສົມໄຊ ໃຈດີ">
+        </div>
+        <div class="form-group">
+          <label>ເບີໂທລະສັບ</label>
+          <input type="tel" required placeholder="020-XXX-XXXX">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>ລົດທີ່ສົນໃຈ</label>
+          <select id="bookingCarSelect">
+            <option value="">-- ເລືອກລຸ້ນລົດ --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>ວັນທີສະດວກເຂົ້າເບິ່ງລົດ</label>
+          <input type="date">
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:14px;">
+        <label>ຂໍ້ຄວາມເພີ່ມເຕີມ</label>
+        <textarea placeholder="ເຊັ່ນ: ສົນໃຈຜ່ອນດາວ / ຢາກຖາມເລື່ອງປະຫວັດລົດ..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">📩 ສົ່ງຂໍ້ມູນຈອງ</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <img id="modalImg" src="" alt="">
+    <div class="modal-body">
+      <h2 id="modalTitle"></h2>
+      <div class="price" id="modalPrice"></div>
+      <ul class="modal-detail-list" id="modalDetail"></ul>
+      <div class="modal-actions">
+        <a class="btn-fb" href="https://www.facebook.com/share/16DTaWFY3HA/?mibextid=wwXIfr" target="_blank">📘 Facebook</a>
+        <a class="btn-wa" id="modalWaLink" href="#" target="_blank">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer id="contact">
+  <p>© 2026 <b>ລົດດີມີສະໄຕລ໌</b> | ຕະຫຼາດລົດຍົນມືສອງອອນລາຍ</p>
+  <div class="footer-links">
+    <a class="fb" href="https://www.facebook.com/share/16DTaWFY3HA/?mibextid=wwXIfr" target="_blank">📘 Facebook Page</a>
+    <a class="wa" href="https://wa.me/02055423158" target="_blank">💬 ແຊັດ WhatsApp</a>
+  </div>
+  <p>ໂທ: 020-1234-5678</p>
+</footer>
+
+<script>
+const cars = [
+  {id:1, name:"Toyota Yaris 2021", brand:"Toyota", type:"hatchback", price:389000, year:2021, mileage:"45,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ຂາວ", img:"https://loremflickr.com/600/400/toyota,white,car", badge:"ຫຼຸດລາຄາ"},
+  {id:2, name:"Honda City 2020", brand:"Honda", type:"sedan", price:459000, year:2020, mileage:"60,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ເທົາ", img:"https://loremflickr.com/600/400/honda,silver,sedan"},
+  {id:3, name:"Mazda CX-5 2019", brand:"Mazda", type:"suv", price:789000, year:2019, mileage:"70,000 ກມ.", fuel:"ດີເຊວ", trans:"ອັດຕະໂນມັດ", color:"ແດງ", img:"https://loremflickr.com/600/400/mazda,red,suv", badge:"ມາໃໝ່"},
+  {id:4, name:"Isuzu D-Max 2022", brand:"Isuzu", type:"pickup", price:699000, year:2022, mileage:"30,000 ກມ.", fuel:"ດີເຊວ", trans:"ທຳມະດາ", color:"ດຳ", img:"https://loremflickr.com/600/400/isuzu,black,pickup"},
+  {id:5, name:"Ford Ranger 2018", brand:"Ford", type:"pickup", price:549000, year:2018, mileage:"90,000 ກມ.", fuel:"ດີເຊວ", trans:"ອັດຕະໂນມັດ", color:"ເງິນ", img:"https://loremflickr.com/600/400/ford,silver,pickup"},
+  {id:6, name:"Toyota Corolla Altis 2021", brand:"Toyota", type:"sedan", price:659000, year:2021, mileage:"38,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ຂາວ", img:"https://loremflickr.com/600/400/toyota,white,sedan", badge:"ຜ່ອນໄດ້"},
+  {id:7, name:"Honda HR-V 2020", brand:"Honda", type:"suv", price:729000, year:2020, mileage:"52,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ຟ້າ", img:"https://loremflickr.com/600/400/honda,blue,suv"},
+  {id:8, name:"Mazda 2 2019", brand:"Mazda", type:"hatchback", price:359000, year:2019, mileage:"55,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ແດງ", img:"https://loremflickr.com/600/400/mazda,red,hatchback"},
+];
+const WHATSAPP_NUMBER = "66812345678"; // 🔴 ປ່ຽນເປັນເບີ WhatsApp ຈິງຂອງທ່ານ
+const FACEBOOK_URL = "https://www.facebook.com/share/16DTaWFY3HA/?mibextid=wwXIfr";
+
+const grid = document.getElementById('carGrid');
+const bookingCarSelect = document.getElementById('bookingCarSelect');
+let activeType = "";
+
+function money(n){ return n.toLocaleString('en-US'); }
+
+function renderCars(list){
+  grid.innerHTML = "";
+  if(list.length === 0){
+    grid.innerHTML = `<div class="no-result">ບໍ່ພົບລົດທີ່ກົງກັບເງື່ອນໄຂການຄົ້ນຫາ 😕</div>`;
+    return;
+  }
+  list.forEach(car => {
+    const card = document.createElement('div');
+    card.className = "car-card";
+    card.onclick = () => openModal(car);
+    card.innerHTML = `
+      ${car.badge ? `<span class="badge">${car.badge}</span>` : ""}
+      <img src="${car.img}" alt="${car.name}">
+      <div class="car-info">
+        <h3>${car.name}</h3>
+        <div class="car-meta">
+          <span>ປີ ${car.year}</span>
+          <span>${car.mileage}</span>
+          <span>${car.trans}</span>
+        </div>
+        <div class="price">${money(car.price)} <small>ບາດ</small></div>
+        <button class="contact-btn" onclick="event.stopPropagation(); openModal(${car.id})">ເບິ່ງລາຍລະອຽດ</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function populateBookingSelect(){
+  cars.forEach(car => {
+    const opt = document.createElement('option');
+    opt.value = car.name;
+    opt.textContent = `${car.name} - ${money(car.price)} ບາດ`;
+    bookingCarSelect.appendChild(opt);
+  });
+}
+
+function openModal(carOrId){
+  const car = typeof carOrId === 'object' ? carOrId : cars.find(c => c.id === carOrId);
+  document.getElementById('modalImg').src = car.img;
+  document.getElementById('modalTitle').textContent = car.name;
+  document.getElementById('modalPrice').textContent = money(car.price) + " ບາດ";
+  document.getElementById('modalDetail').innerHTML = `
+    <li><span>ຍີ່ຫໍ້</span><span>${car.brand}</span></li>
+    <li><span>ປີລົດ</span><span>${car.year}</span></li>
+    <li><span>ເລກໄມລ໌</span><span>${car.mileage}</span></li>
+    <li><span>ນ້ຳມັນ</span><span>${car.fuel}</span></li>
+    <li><span>ເກຍ</span><span>${car.trans}</span></li>
+    <li><span>ສີ</span><span>${car.color}</span></li>
+  `;
+  const waMsg = encodeURIComponent(`ສະບາຍດີ ສົນໃຈລົດ ${car.name} ລາຄາ ${money(car.price)} ບາດ`);
+  document.getElementById('modalWaLink').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`;
+  document.getElementById('modalOverlay').classList.add('show');
+}
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('show');
+}
+
+function applyFilter(){
+  const brand = document.getElementById('filterBrand').value;
+  const priceRange = document.getElementById('filterPrice').value;
+  const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+
+  let filtered = cars.filter(car => {
+    let ok = true;
+    if(activeType) ok = ok && car.type === activeType;
+    if(brand) ok = ok && car.brand === brand;
+    if(keyword) ok = ok && car.name.toLowerCase().includes(keyword);
+    if(priceRange){
+      const [min, max] = priceRange.split('-').map(Number);
+      ok = ok && car.price >= min && car.price <= max;
+    }
+    return ok;
+  });
+  renderCars(filtered);
+}
+
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    activeType = chip.dataset.type;
+    applyFilter();
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input', applyFilter);
+document.getElementById('modalOverlay').addEventListener('click', (e) => {
+  if(e.target.id === 'modalOverlay') closeModal();
+});
+
+document.getElementById('bookingForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const formEl = this;
+
+  const formData = {
+    name: formEl.querySelector('input[type="text"]').value,
+    phone: formEl.querySelector('input[type="tel"]').value,
+    car: document.getElementById('bookingCarSelect').value,
+    date: formEl.querySelector('input[type="date"]').value,
+    message: formEl.querySelector('textarea').value
+  };
+
+  try {
+    const res = await fetch('/api/bookings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      document.getElementById('formSuccess').classList.add('show');
+      formEl.reset();
+      setTimeout(() => {
+        document.getElementById('formSuccess').classList.remove('show');
+      }, 4000);
+    } else {
+      alert(data.error || 'ເກີດຂໍ້ຜິດພາດ');
+    }
+  } catch (err) {
+    alert('ບໍ່ສາມາດເຊື່ອມຕໍ່ server ໄດ້ ກະລຸນາກວດສອບວ່າໄດ້ run node server.js ແລ້ວ');
+  }
+});
+
+renderCars(cars);
+populateBookingSelect();
+</script>
+
+</body>
+</html>
