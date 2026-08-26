@@ -125,7 +125,7 @@
     position:relative;
   }
   .car-card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(225,6,0,.25);border-color:var(--accent);}
-  .car-card img{width:100%;height:180px;object-fit:cover;}
+  .car-card img{width:100%;height:180px;object-fit:cover;background:#0f0f0f;}
   .badge{
     position:absolute;top:12px;left:12px;
     background:var(--accent);color:#fff;
@@ -248,7 +248,7 @@
     animation:pop .25s ease;
   }
   @keyframes pop{from{transform:scale(.9);opacity:0;}to{transform:scale(1);opacity:1;}}
-  .modal-box img{width:100%;height:220px;object-fit:cover;}
+  .modal-box img{width:100%;height:220px;object-fit:cover;background:#0f0f0f;}
   .modal-body{padding:20px;}
   .modal-body h2{margin-bottom:10px;}
   .modal-body .price{margin:10px 0;}
@@ -316,17 +316,19 @@
     <div class="search-box">
       <select id="filterBrand">
         <option value="">ຍີ່ຫໍ້ທັງໝົດ</option>
-        <option value="Toyota">Toyota</option>
-        <option value="Honda">Honda</option>
-        <option value="Mazda">Mazda</option>
-        <option value="Isuzu">Isuzu</option>
+        <option value="Lamborghini">Lamborghini</option>
+        <option value="Porsche">Porsche</option>
+        <option value="BMW">BMW</option>
+        <option value="Mercedes-Benz">Mercedes-Benz</option>
+        <option value="Nissan">Nissan</option>
+        <option value="McLaren">McLaren</option>
         <option value="Ford">Ford</option>
       </select>
       <select id="filterPrice">
         <option value="">ຊ່ວງລາຄາທັງໝົດ</option>
-        <option value="0-400000">ຕ່ຳກວ່າ 400,000</option>
-        <option value="400000-700000">400,000 - 700,000</option>
-        <option value="700000-999999999">700,000 ຂຶ້ນໄປ</option>
+        <option value="0-2000000">ຕ່ຳກວ່າ 2,000,000</option>
+        <option value="2000000-5000000">2,000,000 - 5,000,000</option>
+        <option value="5000000-999999999">5,000,000 ຂຶ້ນໄປ</option>
       </select>
       <input type="text" id="searchInput" placeholder="ຄົ້ນຫາລຸ້ນລົດ...">
       <button onclick="applyFilter()">ຄົ້ນຫາ</button>
@@ -339,9 +341,7 @@
   <div class="filter-chips">
     <div class="chip active" data-type="">ທັງໝົດ</div>
     <div class="chip" data-type="sedan">ລົດເກັ້ງ</div>
-    <div class="chip" data-type="suv">SUV</div>
-    <div class="chip" data-type="pickup">ລົດກະບະ</div>
-    <div class="chip" data-type="hatchback">ແຮັດແບັກ</div>
+    <div class="chip" data-type="sports">ສະປອດ</div>
   </div>
   <div class="car-grid" id="carGrid"></div>
 </div>
@@ -353,7 +353,7 @@
     <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=700&q=80" alt="ກ່ຽວກັບພວກເຮົາ">
     <div class="about-text">
       <h3>ລົດດີມີສະໄຕລ໌ ຕະຫຼາດລົດຍົນມືສອງທີ່ທ່ານໄວ້ວາງໃຈໄດ້</h3>
-      <p>ພວກເຮົາຄັດເລືອກລົດຍົນມືສອງຄຸນນະພາບດີ ຜ່ານການກວດເຊັກສະພາບຢ່າງລະອຽດໂດຍຊ່າງຜູ້ຊ່ຽວຊານ ພ້ອມປະຫວັດການສ້ອມແປງທີ່ຊັດເຈນ ບໍ່ມີການປົກປິດຂໍ້ມູນ ເພື່ອໃຫ້ລູກຄ້າໝັ້ນໃຈໄດ້ໃນທຸກການຕັດສິນໃຈຊື້.</p>
+      <p>ພວກເຮົາຄັດເລືອກລົດຍົນມືສອງຄຸນນະພາບດີ ຜ່ານການກວດເຊັກສະພາບຢ່າງລະອຽດໂດຍຊ່າງຜູ້ຊ່ຽວຊານ ພ້ອມປະຫວັດການສ້ອມແປງທີ່ຊັດເຈນ ບໍ່ມີການປົກປິດຂໍ້ມູນ ເພືອໃຫ້ລູກຄ້າໝນໃຈໄດ້ໃນທຸກການຕັດສິນໃຈຊື້.</p>
       <p>ໃຫ້ບໍລິການມາຫຼາຍກວ່າ 8 ປີ ດ້ວຍທີມງານມືອາຊີບ ພ້ອມບໍລິການຫຼັງການຂາຍ ແລະ ຮັບປະກັນເຄື່ອງຈັກ-ເກຍນານສູງສຸດ 1 ປີ.</p>
       <div class="about-stats">
         <div class="stat-box"><b>8+</b><span>ປີທີ່ໃຫ້ບໍລິການ</span></div>
@@ -419,34 +419,28 @@
 </div>
 
 <footer id="contact">
-  <p>© 2026 <b>ລົດດີມີສະໄຕລ໌</b> | ຕະຫຼາດລົດຍົນມືສອງອອນລາຍ</p>
+  <p>©️ 2026 <b>ລົດດີມີສະໄຕລ໌</b> | ຕະຫຼາດລົດຍົນມືສອງອອນລາຍ</p>
   <div class="footer-links">
     <a class="fb" href="https://www.facebook.com/share/16DTaWFY3HA/?mibextid=wwXIfr" target="_blank">📘 Facebook Page</a>
     <a class="wa" href="https://wa.me/02055423158" target="_blank">💬 ແຊັດ WhatsApp</a>
   </div>
-  <p>ໂທ: 020-1234-5678</p>
+  <p>ໂທ: 02055423158</p>
 </footer>
 
 <script>
 const cars = [
-  {id:1, name:"Toyota Yaris 2021", brand:"Toyota", type:"hatchback", price:389000, year:2021, mileage:"45,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ຂາວ", img:"https://loremflickr.com/600/400/toyota,white,hatchback?lock=1", badge:"ຫຼຸດລາຄາ"},
-  
-  {id:2, name:"Honda City 2020", brand:"Honda", type:"sedan", price:459000, year:2020, mileage:"60,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ເທົາ", img:"https://loremflickr.com/600/400/honda,silver,sedan?lock=2"},
-  
-  {id:3, name:"Mazda CX-5 2019", brand:"Mazda", type:"suv", price:789000, year:2019, mileage:"70,000 ກມ.", fuel:"ດີເຊວ", trans:"ອັດຕະໂນມັດ", color:"ແດງ", img:"https://loremflickr.com/600/400/mazda,red,suv?lock=3", badge:"ມາໃໝ່"},
-  
-  {id:4, name:"Isuzu D-Max 2022", brand:"Isuzu", type:"pickup", price:699000, year:2022, mileage:"30,000 ກມ.", fuel:"ດີເຊວ", trans:"ທຳມະດາ", color:"ດຳ", img:"https://loremflickr.com/600/400/isuzu,black,pickup?lock=4"},
-  
-  {id:5, name:"Ford Ranger 2018", brand:"Ford", type:"pickup", price:549000, year:2018, mileage:"90,000 ກມ.", fuel:"ດີເຊວ", trans:"ອັດຕະໂນມັດ", color:"ເງິນ", img:"https://loremflickr.com/600/400/ford,silver,pickup?lock=5"},
-  
-  {id:6, name:"Toyota Corolla Altis 2021", brand:"Toyota", type:"sedan", price:659000, year:2021, mileage:"38,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ຂາວ", img:"https://loremflickr.com/600/400/toyota,white,sedan?lock=6", badge:"ຜ່ອນໄດ້"},
-  
-  {id:7, name:"Honda HR-V 2020", brand:"Honda", type:"suv", price:729000, year:2020, mileage:"52,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ຟ້າ", img:"https://loremflickr.com/600/400/honda,blue,suv?lock=7"},
-  
-  {id:8, name:"Mazda 2 2019", brand:"Mazda", type:"hatchback", price:359000, year:2019, mileage:"55,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ແດງ", img:"https://loremflickr.com/600/400/mazda,red,hatchback?lock=8"},
+  {id:1, name:"Lamborghini Revuelto", brand:"Lamborghini", type:"sports", price:4590000, img:"images/cars/a.jpeg", year:2024, mileage:"5,000 km", trans:"ເກຍອັດຕະໂນມັດ", fuel:"ນ້ຳມັນ", color:"ສົມ", badge:"ແນະນຳ"},
+  {id:2, name:"Porsche Taycan", brand:"Porsche", type:"sedan", price:4500000, img:"images/cars/city.jpg", year:2022, mileage:"20,000 km", trans:"ໄຟຟ້າ", fuel:"ໄຟຟ້າ", color:"ດຳ"},
+  {id:3, name:"BMW 3 Series", brand:"BMW", type:"sedan", price:2890000, img:"images/cars/bm.jpeg", year:2021, mileage:"35,000 km", trans:"ເກຍອັດຕະໂນມັດ", fuel:"ນ້ຳມັນ", color:"ຂາວ"},
+  {id:4, name:"Mercedes-Benz C-Class", brand:"Mercedes-Benz", type:"sedan", price:1699000, img:"images/cars/as.jpeg", year:2023, mileage:"12,000 km", trans:"ເກຍອັດຕະໂນມັດ", fuel:"ນ້ຳມັນ", color:"ດຳ", badge:"ໃໝ່"},
+  {id:5, name:"Nissan Skyline GT-R R34", brand:"Nissan", type:"sports", price:3549000, img:"images/cars/gtr.jpeg", year:2000, mileage:"40,000 km", trans:"ເກຍທຳມະດາ", fuel:"ນ້ມັນ", color:"ຟ້າ"},
+  {id:6, name:"McLaren 720S", brand:"McLaren", type:"sports", price:6729000, img:"images/cars/md.jpeg", year:2022, mileage:"8,000 km", trans:"ເກຍອັດຕະໂນມັດ", fuel:"ນ້ຳມັນ", color:"ແດງ"},
+  {id:7, name:"Ford Mustang", brand:"Ford", type:"sports", price:5729000, img:"images/cars/m.jpeg", year:2021, mileage:"15,000 km", trans:"ເກຍອັດຕະໂນມັດ", fuel:"ນ້ມັນ", color:"ດຳ"},
+  {id:8, name:"Nissan GT-R", brand:"Nissan", type:"sports", price:2359000, img:"images/cars/k.jpeg", year:2020, mileage:"25,000 km", trans:"ເກຍອັດຕະໂນມັດ", fuel:"ນ້ຳມັນ", color:"ຂາວ"},
 ];
 const WHATSAPP_NUMBER = "66812345678"; // 🔴 ປ່ຽນເປັນເບີ WhatsApp ຈິງຂອງທ່ານ
 const FACEBOOK_URL = "https://www.facebook.com/share/16DTaWFY3HA/?mibextid=wwXIfr";
+const NO_IMAGE = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23222'/%3E%3Ctext x='50%25' y='50%25' fill='%23999' font-size='18' font-family='sans-serif' text-anchor='middle' dy='.3em'%3ENo Image%3C/text%3E%3C/svg%3E";
 
 const grid = document.getElementById('carGrid');
 const bookingCarSelect = document.getElementById('bookingCarSelect');
@@ -466,7 +460,7 @@ function renderCars(list){
     card.onclick = () => openModal(car);
     card.innerHTML = `
       ${car.badge ? `<span class="badge">${car.badge}</span>` : ""}
-      <img src="${car.img}" alt="${car.name}">
+      <img src="${car.img}" alt="${car.name}" onerror="this.onerror=null;this.src='${NO_IMAGE}';">
       <div class="car-info">
         <h3>${car.name}</h3>
         <div class="car-meta">
@@ -493,7 +487,9 @@ function populateBookingSelect(){
 
 function openModal(carOrId){
   const car = typeof carOrId === 'object' ? carOrId : cars.find(c => c.id === carOrId);
-  document.getElementById('modalImg').src = car.img;
+  const modalImg = document.getElementById('modalImg');
+  modalImg.onerror = () => { modalImg.onerror = null; modalImg.src = NO_IMAGE; };
+  modalImg.src = car.img;
   document.getElementById('modalTitle').textContent = car.name;
   document.getElementById('modalPrice').textContent = money(car.price) + " ບາດ";
   document.getElementById('modalDetail').innerHTML = `
@@ -575,7 +571,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
       alert(data.error || 'ເກີດຂໍ້ຜິດພາດ');
     }
   } catch (err) {
-    alert('ບໍ່ສາມາດເຊື່ອມຕໍ່ server ໄດ້ ກະລຸນາກວດສອບວ່າໄດ້ run node server.js ແລ້ວ');
+    alert('ບສາມາດເຊື່ອມຕ server ໄດ້ ກະລຸນາກວດສອບວ່າໄດ້ run node server.js ແລ້ວ');
   }
 });
 
