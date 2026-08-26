@@ -429,14 +429,21 @@
 
 <script>
 const cars = [
-  {id:1, name:"Toyota Yaris 2021", brand:"Toyota", type:"hatchback", price:389000, year:2021, mileage:"45,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ຂາວ", img:"https://loremflickr.com/600/400/toyota,white,car", badge:"ຫຼຸດລາຄາ"},
-  {id:2, name:"Honda City 2020", brand:"Honda", type:"sedan", price:459000, year:2020, mileage:"60,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ເທົາ", img:"https://loremflickr.com/600/400/honda,silver,sedan"},
-  {id:3, name:"Mazda CX-5 2019", brand:"Mazda", type:"suv", price:789000, year:2019, mileage:"70,000 ກມ.", fuel:"ດີເຊວ", trans:"ອັດຕະໂນມັດ", color:"ແດງ", img:"https://loremflickr.com/600/400/mazda,red,suv", badge:"ມາໃໝ່"},
-  {id:4, name:"Isuzu D-Max 2022", brand:"Isuzu", type:"pickup", price:699000, year:2022, mileage:"30,000 ກມ.", fuel:"ດີເຊວ", trans:"ທຳມະດາ", color:"ດຳ", img:"https://loremflickr.com/600/400/isuzu,black,pickup"},
-  {id:5, name:"Ford Ranger 2018", brand:"Ford", type:"pickup", price:549000, year:2018, mileage:"90,000 ກມ.", fuel:"ດີເຊວ", trans:"ອັດຕະໂນມັດ", color:"ເງິນ", img:"https://loremflickr.com/600/400/ford,silver,pickup"},
-  {id:6, name:"Toyota Corolla Altis 2021", brand:"Toyota", type:"sedan", price:659000, year:2021, mileage:"38,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ຂາວ", img:"https://loremflickr.com/600/400/toyota,white,sedan", badge:"ຜ່ອນໄດ້"},
-  {id:7, name:"Honda HR-V 2020", brand:"Honda", type:"suv", price:729000, year:2020, mileage:"52,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ຟ້າ", img:"https://loremflickr.com/600/400/honda,blue,suv"},
-  {id:8, name:"Mazda 2 2019", brand:"Mazda", type:"hatchback", price:359000, year:2019, mileage:"55,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ແດງ", img:"https://loremflickr.com/600/400/mazda,red,hatchback"},
+  {id:1, name:"Toyota Yaris 2021", brand:"Toyota", type:"hatchback", price:389000, year:2021, mileage:"45,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ຂາວ", img:"https://loremflickr.com/600/400/toyota,white,hatchback?lock=1", badge:"ຫຼຸດລາຄາ"},
+  
+  {id:2, name:"Honda City 2020", brand:"Honda", type:"sedan", price:459000, year:2020, mileage:"60,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ເທົາ", img:"https://loremflickr.com/600/400/honda,silver,sedan?lock=2"},
+  
+  {id:3, name:"Mazda CX-5 2019", brand:"Mazda", type:"suv", price:789000, year:2019, mileage:"70,000 ກມ.", fuel:"ດີເຊວ", trans:"ອັດຕະໂນມັດ", color:"ແດງ", img:"https://loremflickr.com/600/400/mazda,red,suv?lock=3", badge:"ມາໃໝ່"},
+  
+  {id:4, name:"Isuzu D-Max 2022", brand:"Isuzu", type:"pickup", price:699000, year:2022, mileage:"30,000 ກມ.", fuel:"ດີເຊວ", trans:"ທຳມະດາ", color:"ດຳ", img:"https://loremflickr.com/600/400/isuzu,black,pickup?lock=4"},
+  
+  {id:5, name:"Ford Ranger 2018", brand:"Ford", type:"pickup", price:549000, year:2018, mileage:"90,000 ກມ.", fuel:"ດີເຊວ", trans:"ອັດຕະໂນມັດ", color:"ເງິນ", img:"https://loremflickr.com/600/400/ford,silver,pickup?lock=5"},
+  
+  {id:6, name:"Toyota Corolla Altis 2021", brand:"Toyota", type:"sedan", price:659000, year:2021, mileage:"38,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ຂາວ", img:"https://loremflickr.com/600/400/toyota,white,sedan?lock=6", badge:"ຜ່ອນໄດ້"},
+  
+  {id:7, name:"Honda HR-V 2020", brand:"Honda", type:"suv", price:729000, year:2020, mileage:"52,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ຟ້າ", img:"https://loremflickr.com/600/400/honda,blue,suv?lock=7"},
+  
+  {id:8, name:"Mazda 2 2019", brand:"Mazda", type:"hatchback", price:359000, year:2019, mileage:"55,000 ກມ.", fuel:"ເບັນຊິນ", trans:"ອັດຕະໂນມັດ", color:"ແດງ", img:"https://loremflickr.com/600/400/mazda,red,hatchback?lock=8"},
 ];
 const WHATSAPP_NUMBER = "66812345678"; // 🔴 ປ່ຽນເປັນເບີ WhatsApp ຈິງຂອງທ່ານ
 const FACEBOOK_URL = "https://www.facebook.com/share/16DTaWFY3HA/?mibextid=wwXIfr";
